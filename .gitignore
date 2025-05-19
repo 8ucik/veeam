@@ -1,0 +1,11 @@
+# playwright
+test-results/
+
+# vscode
+.vscode/
+
+# node
+node_modules/
+
+# logger
+logs/
