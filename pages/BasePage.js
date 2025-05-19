@@ -12,6 +12,11 @@ class BasePage {
     return 5000;
   }
 
+  async getPageTitle() {
+    logger.info('Validating page title');
+    return this.page.getPageTitle();
+  }
+
   async navigateTo(url) {
     logger.info(`Navigating to ${url}`);
     try {
@@ -27,7 +32,10 @@ class BasePage {
     await this.page.click(selector, { delay: this.timeout / 10 });
   }
 
-  async input(selector, text) {
+  async input(selector, text, visible = true) {
+    visible
+      ? logger.info(`Typing ${text} as input`)
+      : logger.info(`Typing ***** as password`);
     await this.page.fill(selector, text, { timeout: this.timeout / 100 });
   }
 
@@ -35,6 +43,12 @@ class BasePage {
     return await this.page.textContent(selector, {
       timeout: this.timeout / 10,
     });
+  }
+
+  async getInnerText(selector) {
+    return await this.page
+      .locator(selector, { timeout: this.timeout / 10 })
+      .innerText();
   }
 
   async isVisible(selector) {

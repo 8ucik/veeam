@@ -5,11 +5,12 @@ class HomePage extends BasePage {
   constructor(page) {
     super(page);
     this.homePageStatisticsText = 'h2.h-stats__title';
+    this.menuBurger = '.v-icon--hamburger-hulk';
   }
 
-  async getPageTitle() {
-    logger.info('Validating page title');
-    return this.page.getPageTitle();
+  async clickOnMenuBurger() {
+    logger.info('Clicking on the menu icon');
+    this.click(this.menuBurger);
   }
 
   async isHomePageVisible() {
