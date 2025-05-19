@@ -11,6 +11,7 @@
   "author": "",
   "license": "ISC",
   "dependencies": {
+    "@faker-js/faker": "^9.8.0",
     "@playwright/test": "^1.52.0",
     "winston": "^3.17.0"
   },
