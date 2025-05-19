@@ -1,6 +1,6 @@
 import logger from '../utils/logger';
 
-export class BasePage {
+class BasePage {
   /**
    * @param {import('@playwright/test').Page} page
    */
@@ -45,3 +45,5 @@ export class BasePage {
     await this.page.waitForSelector(selector, { timeout: this.timeout });
   }
 }
+
+export default BasePage;
